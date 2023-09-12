@@ -1,0 +1,325 @@
+/* Basic CSS Reset */
+html,
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+figure,
+figcaption,
+blockquote,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Override some default styles (optional) */
+body {
+  line-height: 1;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+/* Add more reset styles as needed */
+
+html {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 80%;
+  display: grid;
+  grid: 1fr 2fr 2fr /1fr 3fr 1fr;
+  min-height: 100%;
+  margin: 0 auto;
+}
+
+/* dummy image containers */
+img {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(255, 182, 11);
+}
+
+/* header styling section*/
+header {
+  display: grid;
+  grid: 1fr 2fr/ 2fr 1fr;
+  background-color: white;
+  grid-column: 2/4;
+  font-weight: bold;
+}
+
+.header_search,
+.header_profile {
+  grid-column: 1/2;
+}
+
+.header_search {
+  display: grid;
+  padding: 10px 10px 10px 40px;
+  gap: 10px;
+  align-items: center;
+  grid-template-columns: 30px 1fr;
+  grid-row: 1/2;
+  background-color: #fff;
+}
+
+.header_search input[type="search"] {
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(227, 227, 227);
+  height: 23px;
+}
+
+.header_account {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  padding: 0 20px;
+  place-items: center;
+  grid-row: 1/2;
+}
+
+.header_profile {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.header_profile .profile_pic {
+  width: 50px;
+  height: 50px;
+}
+
+.header_actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 0 25px;
+  place-items: center;
+  place-content: center;
+}
+
+.header_actions button {
+  height: 35px;
+  width: 90px;
+  font-weight: bold;
+  padding: 10px 25px;
+  color: white;
+  background-color: rgb(31, 92, 224);
+  border: none;
+  border-radius: 20px;
+}
+
+/* sidebar styling section*/
+side-bar {
+  display: grid;
+  grid-column: 1fr;
+  grid-auto-rows: min-content;
+  gap: 40px;
+  align-items: start;
+  background-color: rgb(31, 161, 209);
+  padding: 18px;
+  color: white;
+  font-weight: bold;
+  grid-row: 1/-1;
+}
+
+.side-bar_title .grid_icon {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  gap: 3px;
+  grid: repeat(3, 1fr) / repeat(2, 1fr);
+}
+
+/* i chose to make the icon for practice */
+.grid_icon div:nth-child(1),
+.grid_icon div:nth-child(3) {
+  background-color: #fff;
+  grid-column: 1/2;
+}
+.grid_icon div:nth-child(2),
+.grid_icon div:nth-child(4) {
+  background-color: #fff;
+  grid-column: 2/3;
+}
+.grid_icon div:nth-child(1) {
+  grid-row: 1 / span 2;
+}
+.grid_icon div:nth-child(4) {
+  grid-row: 2 / span 2;
+}
+
+.side-bar_title {
+  display: grid;
+  gap: 7px;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+}
+
+.side-bar_title h1 {
+  font-size: 1.3rem;
+  justify-self: start;
+}
+
+side-bar .side-bar_tabs,
+side-bar .side-bar_utils {
+  display: grid;
+  gap: 7px;
+}
+
+side-bar .side-bar_tabs a,
+side-bar .side-bar_utils a {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+side-bar a {
+  text-decoration: none;
+  color: white;
+}
+
+main {
+  display: grid;
+  padding: 30px 20px;
+  grid: 1fr 1fr /3fr 1fr;
+  background-color: rgb(222, 230, 234);
+  grid-column: 2/-1;
+  grid-row: 2/-1;
+}
+
+main .projects {
+  gap: 10px;
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.projects .card-container {
+  display: grid;
+  margin-top: 10px;
+  padding: 0 10px;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card-container .card {
+  display: grid;
+  border-left: 6px solid rgb(255, 174, 0);
+  grid-template-columns: 1fr;
+  padding: 25px 20px 20px 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.card .project_name {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.card .project_details {
+  font-size: 0.6rem;
+  color: rgb(56, 57, 59);
+}
+
+.card .actions {
+  margin-top: 20px;
+  justify-self: end;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+main .announcements {
+  grid-row: 1/2;
+}
+
+.announcements h2 {
+  margin-bottom: 10px;
+}
+
+.announcements .announcements-container {
+  display: grid;
+  padding: 27px 20px 15px 20px;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.announcements-container .announcement {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+}
+
+.announcement .announcement_details {
+  font-size: 0.6rem;
+  color: rgb(56, 57, 59);
+}
+
+/* main .trending {
+  grid-row: 2/3;
+} */
+
+.trending .trending-container {
+  display: grid;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  gap: 10px;
+  background-color: white;
+  grid-template-columns: 1fr;
+}
+
+.trending-container .trending_row {
+  display: grid;
+  align-items: center;
+  padding: 7px 11px;
+  grid-template-columns: 30px 1fr;
+  gap: 10px;
+}
+
+.trender-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.trending_row p {
+  font-size: 0.8rem;
+}
+
+.trending_row .trender_catchphrase {
+  font-size: 0.7rem;
+  color: rgb(145, 146, 146);
+}
