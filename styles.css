@@ -38,10 +38,28 @@ summary {
 body {
   line-height: 1;
   font-family: Arial, sans-serif;
-  background-color: #fff;
+  background-color: white;
 }
 
 /* Add more reset styles as needed */
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: url(./assets/fonts/roboto-regular-webfont.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 300;
+  src: url(./assets/fonts/roboto-light-webfont.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 900;
+  src: url(./assets/fonts/roboto-bold-webfont.woff2) format("woff2");
+}
 
 html {
   width: 100%;
@@ -53,6 +71,8 @@ html {
 
 body {
   width: 80%;
+  font-family: "Roboto";
+  background-color: #fff;
   display: grid;
   grid: 1fr 2fr 2fr /1fr 3fr 1fr;
   min-height: 100%;
@@ -60,10 +80,16 @@ body {
 }
 
 /* dummy image containers */
-img {
+img[src=""] {
   width: 30px;
   height: 30px;
   background-color: rgb(255, 182, 11);
+}
+
+side-bar img:not([src=""]) {
+  width: 17px;
+  height: auto;
+  filter: brightness(0) invert(1);
 }
 
 /* header styling section*/
@@ -73,6 +99,7 @@ header {
   background-color: white;
   grid-column: 2/4;
   font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header_search,
@@ -90,6 +117,11 @@ header {
   background-color: #fff;
 }
 
+.header_search img {
+  width: 20px;
+  height: auto;
+}
+
 .header_search input[type="search"] {
   border-radius: 20px;
   border: none;
@@ -99,41 +131,89 @@ header {
 
 .header_account {
   display: grid;
+  max-width: 220px;
   grid-template-columns: 1fr 1fr 2fr;
-  padding: 0 20px;
+  padding: 0 50px;
   place-items: center;
   grid-row: 1/2;
 }
 
+.header_account .notifications {
+  --size: 20px;
+  background-image: url("./assets/images/bell-ring.svg");
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: var(--size);
+  height: var(--size);
+  border: none;
+  background-color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.profile-container {
+  --size: 30px;
+  --clr: #f6d923;
+  display: grid;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: var(--clr);
+  place-content: center;
+  padding: 5px;
+}
+
+.profile-container img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
 .header_profile {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 50px 2fr;
   gap: 20px;
   align-items: center;
   padding: 10px 30px;
 }
 
-.header_profile .profile_pic {
-  width: 50px;
-  height: 50px;
+.header_profile .profile-container {
+  --size: 50px;
+  padding: 7px;
+}
+
+.profile_text {
+  display: grid;
+  gap: 7px;
+}
+
+.profile_text .profile_greet {
+  font-size: 0.7rem;
 }
 
 .header_actions {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  padding: 0 25px;
+  gap: 20px;
+  padding: 0 50px 0 30px;
   place-items: center;
   place-content: center;
 }
 
-.header_actions button {
-  height: 35px;
-  width: 90px;
+header .header_actions button {
+  display: grid;
+  place-content: center;
+  height: 30px;
+  width: 75px;
   font-weight: bold;
-  padding: 10px 25px;
+  font-size: 0.8rem;
+  padding: 10px 10px;
   color: white;
-  background-color: rgb(31, 92, 224);
+  background-color: rgb(34, 154, 233);
   border: none;
   border-radius: 20px;
 }
@@ -145,7 +225,7 @@ side-bar {
   grid-auto-rows: min-content;
   gap: 40px;
   align-items: start;
-  background-color: rgb(31, 161, 209);
+  background-color: rgb(34, 154, 233);
   padding: 18px;
   color: white;
   font-weight: bold;
@@ -193,7 +273,7 @@ side-bar {
 side-bar .side-bar_tabs,
 side-bar .side-bar_utils {
   display: grid;
-  gap: 7px;
+  gap: 18px;
 }
 
 side-bar .side-bar_tabs a,
@@ -213,21 +293,25 @@ main {
   display: grid;
   padding: 30px 20px;
   grid: 1fr 1fr /3fr 1fr;
+  gap: 30px;
   background-color: rgb(222, 230, 234);
   grid-column: 2/-1;
   grid-row: 2/-1;
 }
 
+main h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(31, 30, 30, 0.952);
+}
+
 main .projects {
-  gap: 10px;
   grid-column: 1/2;
   grid-row: 1/3;
 }
 
 .projects .card-container {
   display: grid;
-  margin-top: 10px;
-  padding: 0 10px;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
@@ -237,8 +321,10 @@ main .projects {
   border-left: 6px solid rgb(255, 174, 0);
   grid-template-columns: 1fr;
   padding: 25px 20px 20px 20px;
+  gap: 5px;
   border-radius: 5px;
   background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card .project_name {
@@ -247,39 +333,59 @@ main .projects {
 }
 
 .card .project_details {
-  font-size: 0.6rem;
-  color: rgb(56, 57, 59);
+  font-size: 0.7rem;
+  color: rgb(70, 70, 72);
 }
 
 .card .actions {
   margin-top: 20px;
   justify-self: end;
+  margin-right: 15px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 20px;
+}
+
+.card .actions img {
+  width: 20px;
+  height: auto;
+  filter: brightness(0.5) saturate(0%) grayscale(100%);
 }
 
 main .announcements {
   grid-row: 1/2;
 }
 
-.announcements h2 {
+main h2 {
   margin-bottom: 10px;
 }
 
 .announcements .announcements-container {
   display: grid;
-  padding: 27px 20px 15px 20px;
+  padding: 15px 20px;
   grid-template-columns: 1fr;
   gap: 15px;
   border-radius: 5px;
   background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .announcements-container .announcement {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2px;
+  gap: 3px;
+  align-content: space-between;
+  padding: 10px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.announcements-container .announcement:last-child {
+  box-shadow: none;
+}
+
+.announcement .announcement_title {
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .announcement .announcement_details {
@@ -293,20 +399,19 @@ main .announcements {
 
 .trending .trending-container {
   display: grid;
-  margin-top: 10px;
   border-radius: 5px;
-  padding: 10px;
-  gap: 10px;
+  padding: 15px;
+  gap: 15px;
   background-color: white;
   grid-template-columns: 1fr;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .trending-container .trending_row {
   display: grid;
   align-items: center;
-  padding: 7px 11px;
   grid-template-columns: 30px 1fr;
-  gap: 10px;
+  gap: 15px;
 }
 
 .trender-container {
@@ -314,6 +419,14 @@ main .announcements {
   grid-template-columns: 1fr;
   gap: 5px;
 }
+
+.trending_row .profile-container {
+  --size: 30px;
+}
+
+/* .trender-container:nth-child(1) {
+  background-color: red !important;
+} */
 
 .trending_row p {
   font-size: 0.8rem;
