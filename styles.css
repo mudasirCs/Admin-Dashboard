@@ -414,19 +414,27 @@ main h2 {
   gap: 15px;
 }
 
+.trending_row .profile-container {
+  --size: 30px;
+}
+
+.trending_row:nth-child(1) .profile-container {
+  --clr: rgba(255, 169, 94, 0.932);
+}
+
+.trending_row:nth-child(3) .profile-container {
+  --clr: rgba(173, 22, 22, 0.862);
+}
+
+.trending_row:nth-child(4) .profile-container {
+  --clr: rgba(65, 32, 228, 0.606);
+}
+
 .trender-container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 5px;
 }
-
-.trending_row .profile-container {
-  --size: 30px;
-}
-
-/* .trender-container:nth-child(1) {
-  background-color: red !important;
-} */
 
 .trending_row p {
   font-size: 0.8rem;
